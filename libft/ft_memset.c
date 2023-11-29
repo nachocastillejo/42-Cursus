@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 20:30:54 by igncasti          #+#    #+#             */
-/*   Updated: 2023/11/28 21:10:33 by igncasti         ###   ########.fr       */
+/*   Created: 2023/11/29 20:09:10 by igncasti          #+#    #+#             */
+/*   Updated: 2023/11/29 21:51:36 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <stdlib.h>
 
-char	ft_isalnum(char c)
+void	*ft_memset(void *s, int c, size_t len)
 {
-	return ((c >= '1' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a'
-			&& c <= 'z'));
+	int		i;
+	char	*a;
+
+	a = (char *)s;
+	i = 0;
+	while (i < len)
+	{
+		a[i] = c;
+		i++;
+	}
+	return (a);
 }
+/* 
+#include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
-	printf("%d", ft_isalnum('-'));
-}
+	char	my_str[] = "hola";
+
+	ft_memset(my_str, 'c', 4);
+	memset(my_str, 'c', 5);
+	printf("%s", my_str);
+} */

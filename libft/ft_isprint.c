@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 20:30:54 by igncasti          #+#    #+#             */
-/*   Updated: 2023/11/28 21:10:33 by igncasti         ###   ########.fr       */
+/*   Created: 2023/11/29 19:40:26 by igncasti          #+#    #+#             */
+/*   Updated: 2023/11/29 20:01:07 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-
-char	ft_isalnum(char c)
+char	ft_isprint(char c)
 {
-	return ((c >= '1' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a'
-			&& c <= 'z'));
+	return (c >= 32 && c <= 126);
 }
+
+/*
+#include <stdio.h>
 
 int	main(void)
 {
-	printf("%d", ft_isalnum('-'));
-}
+	printf("%d", ft_isprint((char)128));
+}*/

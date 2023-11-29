@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 20:30:54 by igncasti          #+#    #+#             */
-/*   Updated: 2023/11/28 21:10:33 by igncasti         ###   ########.fr       */
+/*   Created: 2023/11/29 21:30:48 by igncasti          #+#    #+#             */
+/*   Updated: 2023/11/29 21:51:31 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <stdlib.h>
 
-char	ft_isalnum(char c)
+void	*ft_bzero(void *s, size_t len)
 {
-	return ((c >= '1' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a'
-			&& c <= 'z'));
+	int		i;
+	char	*a;
+
+	a = (char *)s;
+	i = 0;
+	while (i < len)
+	{
+		a[i] = 0;
+		i++;
+	}
+	return (a);
 }
+/* 
+#include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
-	printf("%d", ft_isalnum('-'));
-}
+	char	my_str[] = "hola";
+
+	ft_bzero(my_str, 16);
+	// bzero(my_str, 0);
+	printf("%s", my_str);
+} */

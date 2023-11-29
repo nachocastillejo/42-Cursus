@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 20:30:54 by igncasti          #+#    #+#             */
-/*   Updated: 2023/11/28 21:10:33 by igncasti         ###   ########.fr       */
+/*   Created: 2023/11/29 20:01:01 by igncasti          #+#    #+#             */
+/*   Updated: 2023/11/29 20:06:34 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-
-char	ft_isalnum(char c)
+int	ft_strlen(char *str)
 {
-	return ((c >= '1' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a'
-			&& c <= 'z'));
-}
+	int	i;
 
-int	main(void)
-{
-	printf("%d", ft_isalnum('-'));
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

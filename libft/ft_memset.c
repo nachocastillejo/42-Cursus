@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:09:10 by igncasti          #+#    #+#             */
-/*   Updated: 2023/12/02 14:26:22 by igncasti         ###   ########.fr       */
+/*   Updated: 2023/12/06 13:41:17 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *s, int c, size_t len)
 {
-	int		i;
+	unsigned int		i;
 	char	*a;
 
 	a = (char *)s;

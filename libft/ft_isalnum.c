@@ -6,19 +6,14 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:30:54 by igncasti          #+#    #+#             */
-/*   Updated: 2023/11/28 21:10:33 by igncasti         ###   ########.fr       */
+/*   Updated: 2023/12/06 13:39:54 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 
-char	ft_isalnum(char c)
+int	ft_isalnum(int c)
 {
 	return ((c >= '1' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a'
 			&& c <= 'z'));
-}
-
-int	main(void)
-{
-	printf("%d", ft_isalnum('-'));
 }

@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 21:30:48 by igncasti          #+#    #+#             */
-/*   Updated: 2023/11/29 21:51:31 by igncasti         ###   ########.fr       */
+/*   Updated: 2023/12/06 13:09:36 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_bzero(void *s, size_t len)
 {
-	int		i;
+	unsigned int		i;
 	char	*a;
 
 	a = (char *)s;

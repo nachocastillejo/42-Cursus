@@ -13,11 +13,11 @@
 #include <string.h>
 #include <stdio.h>
 
-char	*is_found(const char *str, char *to_find, size_t l)
+char	*is_found(const char *str, const char *to_find, size_t l)
 {
-	int	i;
-	int	j;
-	int	k;
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	k;
 
 	i = 0;
 	j = 0;
@@ -32,7 +32,7 @@ char	*is_found(const char *str, char *to_find, size_t l)
 				j++;
 				k++;
 				if (to_find[j] == '\0')
-					return (str + i);
+					return ((char *)str + i);
 			}
 		}
 		i++;
@@ -44,7 +44,7 @@ char	*is_found(const char *str, char *to_find, size_t l)
 char	*ft_strnstr(const char *haystack, const char *needle, size_t l)
 {
 	if (needle[0] == '\0')
-		return (haystack);
+		return ((char *)haystack);
 	return (is_found(haystack, needle, l));
 }
 /*

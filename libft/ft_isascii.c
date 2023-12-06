@@ -6,11 +6,11 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:44:35 by igncasti          #+#    #+#             */
-/*   Updated: 2023/11/28 21:04:05 by igncasti         ###   ########.fr       */
+/*   Updated: 2023/12/06 13:29:32 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_isascii(char c)
+int	ft_isascii(int c)
 {
 	return (c >= 0 && c <= 127);
 }

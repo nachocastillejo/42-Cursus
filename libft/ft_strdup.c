@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 16:20:53 by igncasti          #+#    #+#             */
-/*   Updated: 2023/12/03 17:00:42 by igncasti         ###   ########.fr       */
+/*   Updated: 2023/12/06 13:31:57 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ char	*ft_strdup(const char *s1)
 		s1_copy[j] = s1[j];
 		j++;
 	}
+	return(s1_copy);
 }

@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/02 13:49:07 by igncasti          #+#    #+#             */
-/*   Updated: 2023/12/02 13:49:07 by igncasti         ###   ########.fr       */
+/*   Created: 2023/12/03 11:50:34 by igncasti          #+#    #+#             */
+/*   Updated: 2023/12/03 11:50:34 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void *ft_memchr(const void *s, int c, size_t n)
+int ft_memcmp(const void *s1, const void *s2, size_t n)
 {
+	char	*a1;
+	char	*a2;
+
+	a1 = (char*)s1;
+	a2 = (char*)s2;
+
 	unsigned int	i;
-	unsigned char *a;
 
-	a = (char*)s;
 	i = 0;
-
-	while (i < n)
+	while ((a1[i] || a2[i]) && i < n)
 	{
-		if (a[i] == (unsigned char)c)
-			return (&a[i]);
+		if (a1[i] != a2[i])
+			return (a1[i] - a2[i]);
 		i++;
 	}
 	return (0);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-
-int	main(void)
-{
-	char my_str[] = "hola";
-	
-    //printf("%s\n", ft_memchr(my_str, 'o', 4));
-	ft_memchr(my_str, 'o', 0);
-    // Por qué no me printea ola?
-	printf("%s\n",my_str);
-}*/

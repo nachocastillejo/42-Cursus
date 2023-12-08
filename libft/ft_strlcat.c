@@ -33,7 +33,6 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	}
 	if (size > 0 && dest_size <= size)
 		dest[i] = '\0';
-	// Si size es menor de lo que mide dest, logicamente habrá que retornar lo que mide src más lo que mide size.
 	if (size <= dest_size)
 		return (size + src_size);
 	return (src_size + dest_size);

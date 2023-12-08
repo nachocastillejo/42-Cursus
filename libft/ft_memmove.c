@@ -6,11 +6,11 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 22:30:31 by igncasti          #+#    #+#             */
-/*   Updated: 2023/12/02 11:25:44 by igncasti         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:36:44 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
@@ -38,6 +38,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
+
 /*
 #include <stdio.h>
 #include <string.h>

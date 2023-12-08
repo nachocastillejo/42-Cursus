@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
 char	*is_found(const char *str, const char *to_find, size_t l)
 {
@@ -21,13 +20,12 @@ char	*is_found(const char *str, const char *to_find, size_t l)
 
 	i = 0;
 	j = 0;
-	k = 0;
 	while (str[i])
 	{
 		if (str[i] == to_find[j] && i < l)
 		{
 			k = i;
-			while (str[k] == to_find[j])
+			while (str[k] == to_find[j] && k < l)
 			{
 				j++;
 				k++;

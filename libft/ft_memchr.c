@@ -10,16 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void *ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned int	i;
-	char *a;
+	char			*a;
 
-	a = (char*)s;
+	a = (char *)s;
 	i = 0;
-
 	while (i < n)
 	{
 		if (a[i] == (char)c)
@@ -28,6 +27,7 @@ void *ft_memchr(const void *s, int c, size_t n)
 	}
 	return (0);
 }
+
 /*
 #include <stdio.h>
 #include <string.h>

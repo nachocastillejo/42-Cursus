@@ -6,11 +6,11 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 19:40:26 by igncasti          #+#    #+#             */
-/*   Updated: 2023/11/29 20:01:07 by igncasti         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:48:33 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_isprint(char c)
+int	ft_isprint(int c)
 {
 	return (c >= 32 && c <= 126);
 }

@@ -6,16 +6,16 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 21:30:48 by igncasti          #+#    #+#             */
-/*   Updated: 2023/12/06 13:09:36 by igncasti         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:39:39 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	*ft_bzero(void *s, size_t len)
+void	ft_bzero(void *s, size_t len)
 {
 	unsigned int		i;
-	char	*a;
+	char				*a;
 
 	a = (char *)s;
 	i = 0;
@@ -24,7 +24,6 @@ void	*ft_bzero(void *s, size_t len)
 		a[i] = 0;
 		i++;
 	}
-	return (a);
 }
 /* 
 #include <stdio.h>

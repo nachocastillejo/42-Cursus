@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 
 	i = 0;
 	while (1)
 	{
-		// No se si hay que castear el s: (char)s[i]. Yo diría q no.
 		if (s[i] == (char)c)
 			return (&((char *)s)[i]);
 		if (s[i] == '\0')
-			return(0);
+			return (0);
 		i++;
 	}
 	return (0);
 }
+
 /*
 #include <stdio.h>
 #include <string.h>

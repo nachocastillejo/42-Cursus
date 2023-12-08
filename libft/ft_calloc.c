@@ -6,11 +6,11 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 15:40:04 by igncasti          #+#    #+#             */
-/*   Updated: 2023/12/03 16:13:30 by igncasti         ###   ########.fr       */
+/*   Updated: 2023/12/08 21:05:53 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {
@@ -23,7 +23,7 @@ void	*ft_calloc(size_t count, size_t size)
 	if (ptr == NULL)
 		return (NULL);
 	i = 0;
-	while (i < (int)count)
+	while (i < (int)(count * size))
 	{
 		ptr_char[i] = 0;
 		i++;

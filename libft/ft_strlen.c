@@ -6,11 +6,11 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:01:01 by igncasti          #+#    #+#             */
-/*   Updated: 2023/11/29 20:06:34 by igncasti         ###   ########.fr       */
+/*   Updated: 2023/12/08 21:10:28 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 

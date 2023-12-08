@@ -6,15 +6,13 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:24:48 by igncasti          #+#    #+#             */
-/*   Updated: 2023/11/28 21:04:26 by igncasti         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:46:16 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-
-char	ft_isdigit(char c)
+int	ft_isdigit(int c)
 {
-	return (c >= '1' && c <= '9');
+	return (c >= '0' && c <= '9');
 }
 /*
 int	main(void)

@@ -6,14 +6,12 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:30:54 by igncasti          #+#    #+#             */
-/*   Updated: 2023/12/06 13:39:54 by igncasti         ###   ########.fr       */
+/*   Updated: 2023/12/08 20:21:13 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-
 int	ft_isalnum(int c)
 {
-	return ((c >= '1' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a'
+	return ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a'
 			&& c <= 'z'));
 }

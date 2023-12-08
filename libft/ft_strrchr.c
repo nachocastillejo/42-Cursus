@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (s[i])
 		i++;
 	while (i >= 0)

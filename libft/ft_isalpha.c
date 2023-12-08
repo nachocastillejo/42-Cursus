@@ -6,12 +6,11 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:15:35 by igncasti          #+#    #+#             */
-/*   Updated: 2023/11/28 21:38:02 by igncasti         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:47:54 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_isalpha(char c)
+int	ft_isalpha(int c)
 {
 	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
-
 }

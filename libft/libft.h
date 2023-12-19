@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:59:15 by igncasti          #+#    #+#             */
-/*   Updated: 2023/12/08 21:10:37 by igncasti         ###   ########.fr       */
+/*   Updated: 2023/12/19 20:07:48 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int				ft_strlen(const char *str);
 int				ft_strncmp(char *s1, char *s2, unsigned int n);
 char			*ft_strnstr(const char *haystack, const char *needle, size_t l);
 char			*ft_strrchr(const char *s, int c);
+char 			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
 

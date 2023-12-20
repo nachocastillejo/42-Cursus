@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 20:44:35 by igncasti          #+#    #+#             */
-/*   Updated: 2023/12/20 17:35:35 by igncasti         ###   ########.fr       */
+/*   Created: 2023/12/20 19:24:40 by igncasti          #+#    #+#             */
+/*   Updated: 2023/12/20 19:25:11 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	return (c >= 0 && c <= 127);
+	
 }
-
-/*
-#include <stdio.h>
 
 int	main(void)
 {
-	printf("%d", ft_isascii((char)120));
+	ft_strtrim(s1, set)
 }
-*/

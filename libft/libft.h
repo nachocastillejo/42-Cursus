@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:59:15 by igncasti          #+#    #+#             */
-/*   Updated: 2023/12/19 20:07:48 by igncasti         ###   ########.fr       */
+/*   Updated: 2023/12/20 19:14:44 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,14 @@ void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memset(void *s, int c, size_t len);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strdup(const char *s1);
+char			*ft_strjoin(char const *s1, char const *s2);
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
 int				ft_strlen(const char *str);
 int				ft_strncmp(char *s1, char *s2, unsigned int n);
 char			*ft_strnstr(const char *haystack, const char *needle, size_t l);
 char			*ft_strrchr(const char *s, int c);
-char 			*ft_substr(char const *s, unsigned int start, size_t len);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
 

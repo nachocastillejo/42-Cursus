@@ -6,25 +6,25 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 18:09:50 by igncasti          #+#    #+#             */
-/*   Updated: 2024/01/09 21:03:08 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/01/09 21:47:48 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdlib.h>
-#include <stdio.h>*/
+#include <stdlib.h>
+#include <stdio.h>
 #include "libft.h"
 
-int	numlen(int i)
+int	numlen(long i)
 {
-	int	mem;
+	long	mem;
 
-	mem = 0;
-	if (i <= 0)
+	mem = 1;
+	if (i < 0)
 	{
 		mem++;
 		i = -i;
 	}
-	while (i >= 1)
+	while (i > 9)
 	{
 		mem++;
 		i = i / 10;
@@ -34,10 +34,10 @@ int	numlen(int i)
 
 char	*ft_itoa(int n)
 {
-	char	*s;
-	int		i;
-	int		j;
-	int		mem;
+	char		*s;
+	long		i;
+	long		j;
+	long		mem;
 
 	i = n;
 	mem = numlen(i);
@@ -48,7 +48,7 @@ char	*ft_itoa(int n)
 	mem--;
 	j = n;
 	if (n < 0)
-		j = -n;
+		j = -i;
 	while (mem >= 0)
 	{
 		s[mem] = (j % 10) + '0';
@@ -59,12 +59,11 @@ char	*ft_itoa(int n)
 		s[0] = '-';
 	return (s);
 }
-
 /*
 int	main(void)
 {
 	char	*my_str;
 
-	my_str = ft_itoa(0);
+	my_str = ft_itoa(-2147483648);
 	printf("%s", my_str);
 }*/

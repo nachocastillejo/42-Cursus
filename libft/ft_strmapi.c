@@ -40,7 +40,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	
 	new_s = (char *)malloc(sizeof(char)*(ft_strlen((char *)s) + 1));
 	if (!new_s)
-		return (NULL)
+		return (NULL);
 	i = 0;
 	while (i < ft_strlen(s))
 	{

@@ -10,18 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 #include <stdio.h>
-
-int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 int	count_words(const char *s, char c)
 {
@@ -60,7 +50,7 @@ char	*get_word(char *s, int j, char c)
 		i++;
 		k++;
 	}
-	str = malloc(i + 1);
+	str = (char *)malloc(sizeof(char) * (i + 1));
 	while (s[j] != c && s[j])
 	{
 		str[l] = s[j];
@@ -79,22 +69,24 @@ char	**ft_split(const char *s, char c)
 	int			j;
 
 	w = count_words((char *)s, c);
-	res = (char **)malloc(sizeof(char *) * w);
+	res = (char **)malloc(sizeof(char *) * (w + 1));
 	i = 0;
 	j = 0;
 	while (i < w)
 	{
 		res[i] = get_word((char *)s, j, c);
-		j = j + ft_strlen(res[i]);
+		j = j + ft_strlen(res[i]) + 1;
 		i++;
 	}
+	res[i] = NULL;
 	return ((char **)res);
 }
-
+/*
 int	main(void)
 {
 	char	**res;
 
-	res = ft_split("hola me llamo", ' ');
-	printf("%s", res[2]);
+	res = ft_split("hola me", ' ');
+	printf("%s", res[0]);
 }
+*/

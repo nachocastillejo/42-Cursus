@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:59:15 by igncasti          #+#    #+#             */
-/*   Updated: 2024/01/09 21:22:44 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/01/15 22:28:34 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr_fd(char *s, int fd);
+char			**ft_split(const char *s, char c);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strdup(const char *s1);
 char			*ft_strjoin(char const *s1, char const *s2);

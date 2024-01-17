@@ -20,13 +20,17 @@ int	count_words(const char *s, char c)
 
 	i = 0;
 	w = 0;
-	while (s[i] == c)
+	if (!s)
+		return (0);
+	while (s[i] == c && s[i] != '\0')
 		i++;
 	if (s[0] != c && s[0])
 		w++;
 	while (s[i])
 	{
-		if (s[i] == c && s[i + 1] != c)
+		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
+			w++;
+		if (s[0] == c && s[i + 1] == '\0')
 			w++;
 		i++;
 	}
@@ -51,6 +55,8 @@ char	*get_word(char *s, int j, char c)
 		k++;
 	}
 	str = (char *)malloc(sizeof(char) * (i + 1));
+	if (!str)
+		return (NULL);
 	while (s[j] != c && s[j])
 	{
 		str[l] = s[j];
@@ -67,16 +73,37 @@ char	**ft_split(const char *s, char c)
 	int			i;
 	char		**res;
 	int			j;
+	int			n;
 
+	n = 0;
+	if (c == '\0')
+		n = 1;
+	i = 0;
+	if (!s)
+		return (0);
 	w = count_words((char *)s, c);
 	res = (char **)malloc(sizeof(char *) * (w + 1));
+	if (!res)
+		return (NULL);
 	i = 0;
 	j = 0;
+	while (s && s[j] == c && s[j + 1])
+		j++;
 	while (i < w)
 	{
-		res[i] = get_word((char *)s, j, c);
-		j = j + ft_strlen(res[i]) + 1;
-		i++;
+		if (n == 1)
+		{
+			res[i] = (char *)ft_strdup(s);
+			i++;
+		}
+		else
+		{
+			res[i] = get_word((char *)s, j, c);
+			while (s[j] == c)
+				j++;
+			j = j + ft_strlen(res[i]);
+			i++;
+		}
 	}
 	res[i] = NULL;
 	return ((char **)res);
@@ -86,7 +113,7 @@ int	main(void)
 {
 	char	**res;
 
-	res = ft_split("hola me", ' ');
+    res = ft_split("ytfyft", '\0');
 	printf("%s", res[0]);
 }
 */

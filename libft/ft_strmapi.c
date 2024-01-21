@@ -15,30 +15,17 @@
 #include "libft.h"
 
 /*
-int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-Me gustaría hacer una prueba con una función como esta pero con dos parámetros
-
-char	next_char(char c)
-{
-	c = c + 1;
-	return (c);
-}*/
+A cada carácter de la string ’s’, aplica la función ’f’ dando como
+parámetros el índice de cada carácter dentro de ’s’ y el propio
+carácter. Genera una nueva string con el resultado del uso sucesivo de ’f’
+*/
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*new_s;
-	int 		i;
-	
-	new_s = (char *)malloc(sizeof(char)*(ft_strlen((char *)s) + 1));
+	int		i;
+
+	new_s = ft_strdup(s);
 	if (!new_s)
 		return (NULL);
 	i = 0;

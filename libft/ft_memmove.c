@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 22:30:31 by igncasti          #+#    #+#             */
-/*   Updated: 2023/12/08 19:36:44 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/01/28 12:19:42 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,3 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-int	main(void) 
-{
-    char	origen[20] = "Hola, mundo!";
-	char	destino[20] = "Adios";
-
-	ft_memmove(destino, origen, strlen(origen) + 1);
-	//memmove(destino, origen, strlen(origen) + 1);
-    printf("Destino: %s\n", origen);
-}*/

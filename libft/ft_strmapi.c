@@ -10,15 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
-
-/*
-A cada carácter de la string ’s’, aplica la función ’f’ dando como
-parámetros el índice de cada carácter dentro de ’s’ y el propio
-carácter. Genera una nueva string con el resultado del uso sucesivo de ’f’
-*/
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -37,10 +29,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	new_s[i] = '\0';
 	return (new_s);
 }
-
-/*
-int	main(void)
-{
-	printf("%s",ft_strmapi("hola",next_char));
-}
-*/

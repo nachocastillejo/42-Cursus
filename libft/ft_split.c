@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 /*
 count_words
@@ -127,13 +126,3 @@ char	**ft_split(const char *s, char c)
 	res[i] = NULL;
 	return (res);
 }
-
-/*
-int	main(void)
-{
-	char	**res;
-
-    res = ft_split("ytfyft", '\0');
-	printf("%s", res[0]);
-}
-*/

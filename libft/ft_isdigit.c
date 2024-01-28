@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:24:48 by igncasti          #+#    #+#             */
-/*   Updated: 2023/12/08 19:46:16 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/01/28 12:16:37 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,3 @@ int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
-/*
-int	main(void)
-{
-	printf("%d", ft_isdigit('a'));
-}*/

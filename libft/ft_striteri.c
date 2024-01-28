@@ -10,16 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
-
-/*
-A cada carácter de la string ’s’, aplica la función
-’f’ dando como parámetros el índice de cada
-carácter dentro de ’s’ y la dirección del propio
-carácter, que podrá modificarse si es necesario.
-*/
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
@@ -32,10 +23,3 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		i++;
 	}
 }
-
-/*
-int	main(void)
-{
-	printf("%s",ft_strmapi("hola",next_char));
-}
-*/

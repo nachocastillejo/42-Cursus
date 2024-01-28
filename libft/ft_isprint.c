@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 19:40:26 by igncasti          #+#    #+#             */
-/*   Updated: 2023/12/08 19:48:33 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/01/28 12:16:46 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,3 @@ int	ft_isprint(int c)
 {
 	return (c >= 32 && c <= 126);
 }
-
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	printf("%d", ft_isprint((char)128));
-}*/

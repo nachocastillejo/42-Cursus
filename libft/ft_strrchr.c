@@ -25,15 +25,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (0);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-
-int	main(void)
-{
-	char my_str[] = "holahola";
-	
-    printf("%s\n", ft_strrchr(my_str, 'o'));
-    //printf("%s\n", strrchr(my_str, 'o'));
-}
-*/

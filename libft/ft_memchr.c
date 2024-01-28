@@ -27,17 +27,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (0);
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-
-int	main(void)
-{
-	char my_str[] = "hola";
-	
-    //printf("%s\n", ft_memchr(my_str, 'o', 4));
-	ft_memchr(my_str, 'o', 0);
-    // Por qué no me printea ola?
-	printf("%s\n",my_str);
-}*/

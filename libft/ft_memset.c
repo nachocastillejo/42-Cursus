@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:09:10 by igncasti          #+#    #+#             */
-/*   Updated: 2023/12/08 19:36:48 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/01/28 12:19:50 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,3 @@ void	*ft_memset(void *s, int c, size_t len)
 	}
 	return (a);
 }
-
-/* 
-#include <stdio.h>
-#include <string.h>
-
-int	main(void)
-{
-	char	my_str[] = "hola";
-
-	ft_memset(my_str, 'c', 4);
-	memset(my_str, 'c', 5);
-	printf("%s", my_str);
-} */

@@ -45,18 +45,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t l)
 		return ((char *)haystack);
 	return (is_found(haystack, needle, l));
 }
-/*
-int	main(void)
-{
-	char	*res;
-	char	*str1;
-	char	*str2;
-
-	str1  = "buenos días";
-	str2  = "s";
-	res = ft_strstr(str1, str2);
-	printf("%s", res);	
-	printf("%c", '\n');
-	res = strstr(str1, str2);
-	printf("%s", res);
-}*/

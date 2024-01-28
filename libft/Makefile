@@ -6,7 +6,7 @@
 #    By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 11:30:29 by igncasti          #+#    #+#              #
-#    Updated: 2024/01/21 22:10:52 by igncasti         ###   ########.fr        #
+#    Updated: 2024/01/28 12:43:58 by igncasti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ $(NAME): $(OBJS)
 %.o: %.c
 	@$(CC) $(FLAGS) -c $< -o $@
 clean:
-	@$(RM) $(OBJS)
+	@$(RM) $(OBJS) $(BOBJS)
 fclean: clean
 	@$(RM) $(NAME)
 re:
@@ -41,4 +41,4 @@ bonus: $(BOBJS)
 	@ar rc $(NAME) $(BOBJS) 
 	@ranlib $(NAME)	
 
-.PHONY: all clean fclean re ar bonus
+.PHONY: all clean fclean re bonus

@@ -6,12 +6,11 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 23:19:02 by igncasti          #+#    #+#             */
-/*   Updated: 2023/11/28 21:04:05 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/01/31 18:56:47 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
+#include "libftprintf.h"
 
 void	ft_putchar(char c)
 {

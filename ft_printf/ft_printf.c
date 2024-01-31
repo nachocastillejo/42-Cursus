@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 20:09:36 by igncasti          #+#    #+#             */
-/*   Updated: 2024/01/30 23:37:38 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/01/31 19:29:12 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ void	print_arg(char const *input, va_list args)
 		ft_putchar_fd(va_arg(args, int), 1);
 	if (*(input + 1) == 's')
 		ft_putstr_fd(va_arg(args, char *), 1);
+	if (*(input + 1) == 'p')
+		ft_putnbr_base((int)va_arg(args, void *), "0123456789abcdef");
 	if (*(input + 1) == 'd' || *(input + 1) == 'i')
 		ft_putnbr_fd(va_arg(args, int), 1);
-
 }
 
 int	ft_printf(char const *input, ...)
@@ -52,6 +53,7 @@ int	ft_printf(char const *input, ...)
 int	main(void)
 {
 	//printf("Mi edad es %d y la tuya?. Yo tengo %d", 20, 28);
-	ft_printf("Mi edad es %d y la tuya?. Yo tengo %s. Mi inicial es %c", 20, "treinta", 'N');
+	//ft_printf("Mi edad es %d y la tuya?. Yo tengo %s. Mi inicial es %c. Tengo %i perro", 20, "treinta", 'N', 1);
+	ft_printf("Mi edad es %p", 42);
 	return (0);
 }

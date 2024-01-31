@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 20:09:36 by igncasti          #+#    #+#             */
-/*   Updated: 2024/01/31 19:29:12 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/01/31 19:32:03 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ int	main(void)
 {
 	//printf("Mi edad es %d y la tuya?. Yo tengo %d", 20, 28);
 	//ft_printf("Mi edad es %d y la tuya?. Yo tengo %s. Mi inicial es %c. Tengo %i perro", 20, "treinta", 'N', 1);
-	ft_printf("Mi edad es %p", 42);
+	ft_printf("Mi edad es %d", 42.4);
 	return (0);
 }

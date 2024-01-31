@@ -6,11 +6,11 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 23:19:02 by igncasti          #+#    #+#             */
-/*   Updated: 2024/01/31 20:03:44 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/01/31 22:00:44 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	str_len(char *str)
 {
@@ -47,28 +47,32 @@ int	wrong_base(char *str)
 	return (0);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+void	ft_putnbr_base(int nbr, char *base, int *res)
 {
 	if (wrong_base(base))
 		return ;
 	if (nbr == -2147483648)
 	{
-		ft_putnbr_base(nbr / str_len(base), base);
-		ft_putnbr_base(nbr % str_len(base), base);
+		ft_putnbr_base(nbr / str_len(base), base, res);
+		ft_putnbr_base(nbr % str_len(base), base, res);
 		return ;
 	}
 	if (nbr < 0)
 	{
-		ft_putchar('-');
+		ft_putchar('-', res);
+		*res += 1;
 		nbr = -nbr;
 	}
 	if (nbr >= str_len(base))
 	{
-		ft_putnbr_base(nbr / str_len(base), base);
-		ft_putnbr_base(nbr % str_len(base), base);
+		ft_putnbr_base(nbr / str_len(base), base, res);
+		ft_putnbr_base(nbr % str_len(base), base, res);
 	}
 	else
-		ft_putchar(base[nbr % str_len(base)]);
+	{
+		ft_putchar(base[nbr % str_len(base)], res);
+		*res += 1;
+	}
 }
 /*
 int	main(void)

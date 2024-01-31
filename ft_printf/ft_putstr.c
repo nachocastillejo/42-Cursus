@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 19:51:42 by igncasti          #+#    #+#             */
-/*   Updated: 2024/01/31 19:58:57 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/01/31 21:53:23 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void	ft_putstr(char *s)
+void	ft_putstr(char *s, int *res)
 {
 	int	i;
 
 	i = -1;
 	while (s[++i])
 		write(1, &s[i], 1);
+	*res += i;
 }

@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 19:13:46 by igncasti          #+#    #+#             */
-/*   Updated: 2024/01/31 19:57:04 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/01/31 21:53:53 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void	ft_putchar(char c)
+void	ft_putchar(char c, int *res)
 {
 	write(1, &c, 1);
+	*res += 1;
 }

@@ -6,7 +6,7 @@
 #    By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/28 20:38:52 by igncasti          #+#    #+#              #
-#    Updated: 2024/01/31 19:18:33 by igncasti         ###   ########.fr        #
+#    Updated: 2024/01/31 20:00:10 by igncasti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CC = gcc # Compilador que vamos a utilizar
 FLAGS = -Wall -Wextra -Werror # Flags a utilizar al compilar
 RM = rm -f # Shortcut para eliminar archivos
 
-SRCS = ft_printf.c ft_putchar_fd.c ft_putstr_fd.c ft_putnbr_fd.c ft_putnbr_base.c # Fuentes/funciones sobre las que vamos a crear la biblioteca 
+SRCS = ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putnbr_base.c # Fuentes/funciones sobre las que vamos a crear la biblioteca 
 OBJS = $(SRCS:.c=.o) # Objetos (todas las fuentes/funciones pasadas a .o)
 
 # Creamos la regla all, que depende de NAME.

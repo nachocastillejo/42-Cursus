@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 20:22:39 by igncasti          #+#    #+#             */
-/*   Updated: 2024/01/30 23:08:24 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/01/31 20:13:15 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr(int n, int respect_sign)
 {
 	if (n == -2147483648)
 	{
-		write(fd, "-2147483648", 11);
+		write(1, "-2147483648", 11);
 		return ;
 	}
 	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
+		if (respect_sign)
+			ft_putchar('-');
 		n = -n;
 	}
 	if (n > 9)
 	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
+		ft_putnbr(n / 10, 1);
+		ft_putnbr(n % 10, 1);
 	}
 	if (n <= 9)
-		ft_putchar_fd(n + '0', fd);
+		ft_putchar(n + '0');
 }

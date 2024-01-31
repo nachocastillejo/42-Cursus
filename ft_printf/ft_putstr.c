@@ -6,17 +6,17 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 19:51:42 by igncasti          #+#    #+#             */
-/*   Updated: 2024/01/30 23:08:21 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/01/31 19:58:57 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr(char *s)
 {
 	int	i;
 
 	i = -1;
 	while (s[++i])
-		write(fd, &s[i], 1);
+		write(1, &s[i], 1);
 }

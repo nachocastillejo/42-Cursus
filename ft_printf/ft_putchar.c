@@ -6,13 +6,13 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 19:13:46 by igncasti          #+#    #+#             */
-/*   Updated: 2024/01/30 23:08:26 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/01/31 19:57:04 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putchar(char c)
 {
-	write(fd, &c, 1);
+	write(1, &c, 1);
 }

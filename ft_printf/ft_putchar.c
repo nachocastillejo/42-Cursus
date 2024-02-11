@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 19:13:46 by igncasti          #+#    #+#             */
-/*   Updated: 2024/01/31 21:53:53 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/02/11 18:55:28 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putchar(char c, int *res)
 {
-	write(1, &c, 1);
-	*res += 1;
+	if (write(1, &c, 1) < 0)
+		*res -= 1;
+	else
+		*res += 1;
 }

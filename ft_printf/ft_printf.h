@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 20:00:00 by igncasti          #+#    #+#             */
-/*   Updated: 2024/01/31 21:53:44 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/02/11 18:43:52 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 int				ft_printf(char const *input, ...);
 void			ft_putchar(char c, int *res);
-void			ft_putnbr(int n, int respect_sign, int *res);
+void			ft_putnbr(long n, int respect_sign, int *res);
 void			ft_putstr(char *s, int *res);
-void			ft_putnbr_base(int nbr, char *base, int *res);
+void			ft_putnbr_base(unsigned long nbr, char *base, int *res);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 23:19:02 by igncasti          #+#    #+#             */
-/*   Updated: 2024/01/31 22:00:44 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/02/11 19:51:09 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,31 +47,24 @@ int	wrong_base(char *str)
 	return (0);
 }
 
-void	ft_putnbr_base(int nbr, char *base, int *res)
+void	ft_putnbr_base(unsigned long nbr, char *base, int *res)
 {
-	if (wrong_base(base))
-		return ;
-	if (nbr == -2147483648)
+	if (*res >= 0)
 	{
-		ft_putnbr_base(nbr / str_len(base), base, res);
-		ft_putnbr_base(nbr % str_len(base), base, res);
-		return ;
-	}
-	if (nbr < 0)
-	{
-		ft_putchar('-', res);
-		*res += 1;
-		nbr = -nbr;
-	}
-	if (nbr >= str_len(base))
-	{
-		ft_putnbr_base(nbr / str_len(base), base, res);
-		ft_putnbr_base(nbr % str_len(base), base, res);
-	}
-	else
-	{
-		ft_putchar(base[nbr % str_len(base)], res);
-		*res += 1;
+		if (wrong_base(base))
+			return ;
+		if (nbr < 0)
+		{
+			ft_putchar('-', res);
+			nbr = -nbr;
+		}
+		if (nbr >= (unsigned long)str_len(base))
+		{
+			ft_putnbr_base(nbr / str_len(base), base, res);
+			ft_putnbr_base(nbr % str_len(base), base, res);
+		}
+		else
+			ft_putchar(base[nbr % str_len(base)], res);
 	}
 }
 /*

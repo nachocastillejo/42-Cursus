@@ -6,33 +6,73 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 11:06:18 by igncasti          #+#    #+#             */
-/*   Updated: 2024/04/12 20:20:38 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/04/14 14:47:28 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+char	*before_new_line(char *s1)
+{
+	char	*s1_copy;
+	int		i;
+	int		j;
 
+	i = 0;
+	j = 0;
+	while (s1[i] && s1[i] != '\n')
+		i++;
+	printf("%d",i);
+	s1_copy = (char *)malloc(sizeof(char) * (i + 1));
+	if (s1_copy == NULL)
+		return (NULL);
+	while (s1[j] && j < i)
+	{
+		s1_copy[j] = s1[j];
+		j++;
+	}
+	s1_copy[j] = '\0';
+	return (s1_copy);
+}
 char	*get_next_line(int fd)
 {
 	char		buf[BUFFER_SIZE + 1];
 	int			chars_read;
+	char		*temp;
 	char		*res;
-	static char	*static_temp;
+	static char	*static_text;
 	int			i;
 
-	chars_read = 4;
+	chars_read = BUFFER_SIZE;
 	while (chars_read != 0)
 	{
 		chars_read = read(fd, buf, BUFFER_SIZE - (BUFFER_SIZE - chars_read));
+		printf("ITERACIÓN\n");
+		printf("CHARS READ -> %d\n", chars_read);
 		if (chars_read == 0)
 			break ;
 		buf[chars_read] = '\0';
-		printf("%d\n", chars_read);
-		static_temp = ft_strjoin(static_temp, buf);
-		printf("%s\n", static_temp);
+		printf("BUF -> %s\n", buf);
+		i = 0;
+		static_text = ft_strjoin(static_text, buf);
+		printf("STATIC TEXT - > %s\n", static_text);
+		while (buf[i])
+		{
+			if (buf[i] == '\n')
+			{
+				res = before_new_line(static_text);
+				printf("res -> %s\n", res);
+				temp = ft_strchr(static_text, '\n');
+				printf("temp -> %s\n", temp);
+				free(static_text);
+				static_text = ft_strdup(temp);
+				printf("STATIC TEXT - > %s\n\n", static_text);
+				return (res);
+			}
+			i++;
+		}
 	}
-	return (0);
+	return (static_text);
 }
 
 int	main(void)
@@ -42,6 +82,9 @@ int	main(void)
 
 	fd = open("file.txt", O_RDONLY);
 	buf_res = get_next_line(fd);
+	printf("RESULTADO -> %s\n", buf_res);
+	buf_res = get_next_line(fd);
+	printf("RESULTADO -> %s\n", buf_res);
 //	buf_res = get_next_line(fd);
 //	buf_res = get_next_line(fd);
 //	buf_res = get_next_line(fd);

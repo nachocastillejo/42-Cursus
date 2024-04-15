@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:21:07 by igncasti          #+#    #+#             */
-/*   Updated: 2024/04/12 19:45:13 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/04/15 11:43:52 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ char	*ft_strchr(const char *s, int c)
 	while (1)
 	{
 		if (s[i] == (char)c)
-			return (&((char *)s)[i]);
+			return (&((char *)s)[i + 1]);
 		if (s[i] == '\0')
 			return (0);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 11:06:18 by igncasti          #+#    #+#             */
-/*   Updated: 2024/04/14 14:47:28 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/04/15 11:52:59 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ char	*before_new_line(char *s1)
 	j = 0;
 	while (s1[i] && s1[i] != '\n')
 		i++;
-	printf("%d",i);
 	s1_copy = (char *)malloc(sizeof(char) * (i + 1));
 	if (s1_copy == NULL)
 		return (NULL);
@@ -43,11 +42,30 @@ char	*get_next_line(int fd)
 	static char	*static_text;
 	int			i;
 
+	if (static_text != 0)
+	{
+		printf("STATIC TEXT PRE 1 -> %s\n", static_text);
+		i = 0;
+		while (static_text[i])
+		{
+			if (static_text[i] == '\n')
+			{
+				res = before_new_line(static_text);
+				printf("res PRE -> %s\n", res);
+				temp = ft_strchr(static_text, '\n');
+				printf("temp PRE -> %s\n", temp);
+				free(static_text);
+				static_text = ft_strdup(temp);
+				printf("STATIC TEXT PRE 2 -> %s\n", static_text);
+				return (res);
+			}
+			i++;
+		}
+	}
 	chars_read = BUFFER_SIZE;
 	while (chars_read != 0)
 	{
 		chars_read = read(fd, buf, BUFFER_SIZE - (BUFFER_SIZE - chars_read));
-		printf("ITERACIÓN\n");
 		printf("CHARS READ -> %d\n", chars_read);
 		if (chars_read == 0)
 			break ;
@@ -66,7 +84,7 @@ char	*get_next_line(int fd)
 				printf("temp -> %s\n", temp);
 				free(static_text);
 				static_text = ft_strdup(temp);
-				printf("STATIC TEXT - > %s\n\n", static_text);
+				printf("STATIC TEXT -> %s\n", static_text);
 				return (res);
 			}
 			i++;
@@ -81,10 +99,27 @@ int	main(void)
 	char			*buf_res;
 
 	fd = open("file.txt", O_RDONLY);
+
+	printf("\n\nITERACIÓN 1\n");
 	buf_res = get_next_line(fd);
 	printf("RESULTADO -> %s\n", buf_res);
+
+	printf("\n\nITERACIÓN 2\n");
 	buf_res = get_next_line(fd);
 	printf("RESULTADO -> %s\n", buf_res);
+
+	printf("\n\nITERACIÓN 3\n");
+	buf_res = get_next_line(fd);
+	printf("RESULTADO -> %s\n", buf_res);
+
+	printf("\n\nITERACIÓN 4\n");
+	buf_res = get_next_line(fd);
+	printf("RESULTADO -> %s\n", buf_res);
+
+	printf("\n\nITERACIÓN 5\n");
+	buf_res = get_next_line(fd);
+	printf("RESULTADO -> %s\n", buf_res);
+
 //	buf_res = get_next_line(fd);
 //	buf_res = get_next_line(fd);
 //	buf_res = get_next_line(fd);

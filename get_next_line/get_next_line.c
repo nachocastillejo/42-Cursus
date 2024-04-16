@@ -6,12 +6,17 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 11:06:18 by igncasti          #+#    #+#             */
-/*   Updated: 2024/04/16 12:27:29 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/04/16 21:28:35 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+void	free_storage(char **string)
+{
+	free(*string);
+	*string = NULL;
+}
 
 char	*get_next_line(int fd)
 {
@@ -23,9 +28,14 @@ char	*get_next_line(int fd)
 	int			i;
 	int			j;
 
-	if (!fd)
-		return (0);
-	if (static_text != 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	{
+		if (static_text)
+			free_storage(&static_text);
+		return (NULL);
+	}
+
+	if (static_text)
 	{
 		//printf("STATIC TEXT PRE 1 -> %s\n", static_text);
 		i = 0;
@@ -35,10 +45,10 @@ char	*get_next_line(int fd)
 			{
 				res = before_new_line(static_text);
 				//printf("res PRE -> %s\n", res);
-				temp = ft_strchr(static_text, '\n');
+				temp = ft_strdup(ft_strchr(static_text, '\n'));
 				//printf("temp PRE -> %s\n", temp);
-				free(static_text);
-				static_text = ft_strdup(temp);
+				free_storage(&static_text);
+				static_text = temp;
 				//printf("STATIC TEXT PRE 2 -> %s\n", static_text);
 				return (res);
 			}
@@ -52,13 +62,29 @@ char	*get_next_line(int fd)
 		chars_read = read(fd, buf, BUFFER_SIZE - (BUFFER_SIZE - chars_read));
 		//printf("CHARS READ -> %d\n", chars_read);
 		//printf("J -> %d\n", j);
-		if (chars_read == 0 && j > 0)
-			return (static_text);
+		//if (chars_read == 0 && j > 0)
+		//	return (static_text);
 		if (chars_read == 0)
-			return (0);
+		{
+			if (static_text)
+			{
+				//printf("CONDITION\n");
+				//res = ft_strdup(static_text);
+				res = ft_strdup(static_text);
+				printf("RES -> %s\n", static_text);
+				free_storage(&static_text);
+				static_text = 0;
+				return (res);
+			}
+			else
+				return (0);
+		}
 		buf[chars_read] = '\0';
 		//printf("BUF -> %s\n", buf);
+		temp = static_text;
 		static_text = ft_strjoin(static_text, buf);
+		if (temp)
+			free(temp);
 		//printf("STATIC TEXT -> %s\n", static_text);
 		i = 0;
 		while (buf[i])
@@ -67,10 +93,11 @@ char	*get_next_line(int fd)
 			{
 				res = before_new_line(static_text);
 				//printf("res -> %s\n", res);
-				temp = ft_strchr(static_text, '\n');
+				temp = ft_strdup(ft_strchr(static_text, '\n'));
 				//printf("temp -> %s\n", temp);
-				free(static_text);
-				static_text = ft_strdup(temp);
+				if (static_text)
+					free_storage(&static_text);
+				static_text = temp;
 				//printf("STATIC TEXT -> %s\n", static_text);
 				return (res);
 			}
@@ -78,16 +105,9 @@ char	*get_next_line(int fd)
 		}
 		j++;
 	}
-	if (static_text[0])
-	{
-		res = ft_strdup(static_text);
-		free(static_text);
-		static_text = 0;
-		return (res);
-	}
 	return (0);
 }
-
+/*
 int	main(void)
 {
 	int				fd;
@@ -119,10 +139,4 @@ int	main(void)
 //	buf_res = get_next_line(fd);
 //	buf_res = get_next_line(fd);
 }
-
-
-
-/*
-write(fd, "hey esto es una prueba de un text mas o menos largo043", 56);
-lseek(fd, 0, SEEK_SET);
 */

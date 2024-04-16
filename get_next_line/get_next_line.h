@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:20:38 by igncasti          #+#    #+#             */
-/*   Updated: 2024/04/16 11:26:39 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/04/16 21:19:49 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ char	*before_new_line(char *s1);
 int		ft_strlen(const char *str);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
+void	free_storage(char **string);
 
 #endif

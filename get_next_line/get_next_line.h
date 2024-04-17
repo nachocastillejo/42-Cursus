@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:20:38 by igncasti          #+#    #+#             */
-/*   Updated: 2024/04/17 14:21:57 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/04/17 18:51:26 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000000
+#  define BUFFER_SIZE 2
 # endif
 
 # include <stdio.h>

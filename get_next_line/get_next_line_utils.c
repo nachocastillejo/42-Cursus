@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:21:07 by igncasti          #+#    #+#             */
-/*   Updated: 2024/04/17 14:11:54 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/04/17 19:32:43 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ char	*before_new_line(char *s1)
 	before_nl = 0;
 	i = 0;
 	from_nl = 0;
-	while (s1[from_nl] == '\n')
-		from_nl++;
+	//while (s1[from_nl] == '\n')
+	//	from_nl++;
 	//printf("from_nl -> %d\n", from_nl);
 	before_nl = from_nl;
 	while (s1[before_nl] && s1[before_nl] != '\n')
@@ -38,8 +38,9 @@ char	*before_new_line(char *s1)
 		i++;
 		from_nl++;
 	}
-	s1_copy[i] = '\n';
-	s1_copy[i + 1] = '\0';
+	if (s1[from_nl] == '\n')
+		s1_copy[i++] = '\n';
+	s1_copy[i] = '\0';
 	return (s1_copy);
 }
 
@@ -80,13 +81,13 @@ char	*ft_strchr(const char *s, int c)
 	int	i;
 
 	i = 0;
-	while (s[i] == '\n')
-		i++;
+	//while (s[i] == '\n')
+	//	i++;
 	//printf("i -> %d\n", i);
 	//printf("c -> %c\n", s[i]);
 	while (1)
 	{
-		if (s[i] == (char)c && s[i + 1] != c)
+		if (s[i] == (char)c)
 			return (&((char *)s)[i + 1]);
 		if (s[i] == '\0')
 			return (0);
@@ -115,5 +116,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (s2[++j])
 		res[i + j] = s2[j];
 	res[i + j] = '\0';
+	free_storage((char **)(&s1));
 	return (res);
 }

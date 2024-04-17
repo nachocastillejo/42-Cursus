@@ -6,11 +6,16 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 11:06:18 by igncasti          #+#    #+#             */
-/*   Updated: 2024/04/17 14:25:10 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/04/17 19:49:32 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+void	ft_leaks(void)
+{
+	system("leaks -q a.out");
+}
 
 void	free_storage(char **string)
 {
@@ -36,21 +41,23 @@ char	*get_next_line(int fd)
 	}
 	if (static_text)// && static_text[0] != '\n')
 	{
-		printf("STATIC TEXT PRE 1 -> %s\n", static_text);
+		//printf("STATIC TEXT PRE 1 -> %s\n", static_text);
 		i = 0;
 		while (static_text[i])
 		{
 			if (static_text[i] == '\n')
 			{
 				res = before_new_line(static_text);
-				printf("res PRE -> %s\n", res);
-				if (res && ft_strlen(res) > 1)
+				//return (0);
+				//res = before_new_line(static_text);
+				//printf("res PRE -> %s\n", res);
+				if (res)
 				{
 					temp = ft_strdup(ft_strchr(static_text, '\n'));
-					printf("temp PRE -> %s\n", temp);
+					//printf("temp PRE -> %s\n", temp);
 					free_storage(&static_text);
 					static_text = temp;
-					printf("STATIC TEXT PRE 2 -> %s\n", static_text);
+					//printf("STATIC TEXT PRE 2 -> %s\n", static_text);
 					return (res);
 				}
 				else
@@ -63,45 +70,51 @@ char	*get_next_line(int fd)
 	j = 0;
 	while (chars_read != 0)
 	{
-		chars_read = read(fd, buf, BUFFER_SIZE - (BUFFER_SIZE - chars_read));
-		printf("CHARS READ -> %d\n", chars_read);
-		printf("J -> %d\n", j);
-		//if (chars_read == 0 && j > 0)
-		//	return (static_text);
+		chars_read = read(fd, buf, BUFFER_SIZE);
+		//printf("CHARS READ -> %d\n", chars_read);
+		//printf("LECTURA %d\n", j + 1);
 		if (chars_read == 0)
 		{
-			printf("STATIC TEXT -> %s\n", static_text);
-			if (static_text[0] && static_text[0] != '\n')
+			//printf("STATIC TEXT -> %s\n", static_text);
+			if (static_text && static_text[0] && static_text[0] != '\n')
 			{
-				printf("CONDITION\n");
-				//res = ft_strdup(static_text);
-				res = ft_strdup(static_text);
-				printf("RES -> %s\n", static_text);
+				//printf("CONDITION\n");
+				//temp = static_text;
+				res = before_new_line(static_text);
+				//if (temp)
+				//	free(temp);
+				//printf("RES -> %s\n", static_text);
 				free_storage(&static_text);
 				static_text = 0;
+				//if (temp)
+				//	free(temp);
 				return (res);
 			}
 			else
 				return (0);
 		}
 		buf[chars_read] = '\0';
-		printf("BUF -> %s\n", buf);
+		//printf("BUF -> %s\n", buf);
+		// temp = ft_strjoin(static_text, buf);
+		// free_storage(&static_text);
+		// static_text = temp;
 		temp = static_text;
-		static_text = ft_strjoin(static_text, buf);
-		if (temp)
-			free(temp);
-		printf("STATIC TEXT -> %s\n", static_text);
+		static_text = ft_strjoin(temp, buf);
+		//printf("STATIC TEXT -> %s\n", static_text);
 		i = 0;
 		while (buf[i])
 		{
 			if (buf[i] == '\n')
 			{
 				res = before_new_line(static_text);
-				printf("res -> %s\n", res);
-				if (res && ft_strlen(res) > 1)
+				//res = before_new_line(temp);
+				//if (temp)
+				//	free(temp);
+				//printf("res -> %s\n", res);
+				if (res)
 				{
 					temp = ft_strdup(ft_strchr(static_text, '\n'));
-					printf("temp -> %s\n", temp);
+					//printf("temp -> %s\n", temp);
 					if (static_text)
 						free_storage(&static_text);
 					static_text = temp;
@@ -114,12 +127,13 @@ char	*get_next_line(int fd)
 	}
 	return (0);
 }
-
+/*
 int	main(void)
 {
 	int				fd;
 	char			*buf_res;
 
+	atexit(ft_leaks);
 	fd = open("file.txt", O_RDONLY);
 
 	printf("\n\nITERACIÓN 1\n");
@@ -129,6 +143,7 @@ int	main(void)
 	printf("\n\nITERACIÓN 2\n");
 	buf_res = get_next_line(fd);
 	printf("RESULTADO -> %s\n", buf_res);
+
 
 	printf("\n\nITERACIÓN 3\n");
 	buf_res = get_next_line(fd);
@@ -150,3 +165,4 @@ int	main(void)
 //	buf_res = get_next_line(fd);
 //	buf_res = get_next_line(fd);
 }
+*/

@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:21:07 by igncasti          #+#    #+#             */
-/*   Updated: 2024/04/18 14:48:28 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:05:18 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ char	*before_new_line(char *s1)
 			break ;
 		before_nl++;
 	}
+	//printf("before_nl -> %d\n", from_nl);
 	s1_copy = (char *)malloc(sizeof(char) * (before_nl - from_nl + 2));
 	if (s1_copy == NULL)
 		return (NULL);
@@ -81,6 +82,10 @@ char	*ft_strchr(const char *s, int c)
 	int	i;
 
 	i = 0;
+	//while (s[i] == '\n')
+	//	i++;
+	//printf("i -> %d\n", i);
+	//printf("c -> %c\n", s[i]);
 	while (1)
 	{
 		if (s[i] == (char)c)

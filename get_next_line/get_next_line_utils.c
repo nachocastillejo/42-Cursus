@@ -6,39 +6,41 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:21:07 by igncasti          #+#    #+#             */
-/*   Updated: 2024/04/18 14:48:28 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/05/08 19:24:21 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+void	free_storage(char **string)
+{
+	free(*string);
+	*string = NULL;
+}
+
 char	*before_new_line(char *s1)
 {
 	char	*s1_copy;
-	int		from_nl;
 	int		before_nl;
 	int		i;
 
 	before_nl = 0;
 	i = 0;
-	from_nl = 0;
-	before_nl = from_nl;
 	while (s1[before_nl])
 	{
 		if (s1[before_nl] == '\n')
 			break ;
 		before_nl++;
 	}
-	s1_copy = (char *)malloc(sizeof(char) * (before_nl - from_nl + 2));
+	s1_copy = (char *)malloc(sizeof(char) * (before_nl + 2));
 	if (s1_copy == NULL)
 		return (NULL);
-	while (s1[from_nl] && s1[from_nl] != '\n')
+	while (s1[i] && s1[i] != '\n')
 	{
-		s1_copy[i] = s1[from_nl];
+		s1_copy[i] = s1[i];
 		i++;
-		from_nl++;
 	}
-	if (s1[from_nl] == '\n')
+	if (s1[i] == '\n')
 		s1_copy[i++] = '\n';
 	s1_copy[i] = '\0';
 	return (s1_copy);
@@ -66,16 +68,6 @@ char	*ft_strdup(const char *s1)
 	return (s1_copy);
 }
 
-int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
 char	*ft_strchr(const char *s, int c)
 {
 	int	i;
@@ -95,14 +87,18 @@ char	*ft_strchr(const char *s, int c)
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*res;
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
 
 	if (!s1)
 		return (ft_strdup(s2));
-	else
-		res = (char *)malloc(sizeof(char) * ((ft_strlen(s1)
-						+ ft_strlen(s2) + 1)));
+	i = 0;
+	while (s1[i])
+		i++;
+	j = 0;
+	while (s2[j])
+		j++;
+	res = (char *)malloc(sizeof(char) * ((i + j + 1)));
 	if (!res)
 		return (NULL);
 	i = -1;

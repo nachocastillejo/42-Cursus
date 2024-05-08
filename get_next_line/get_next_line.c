@@ -6,22 +6,11 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 11:06:18 by igncasti          #+#    #+#             */
-/*   Updated: 2024/04/18 14:55:14 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/05/08 20:07:17 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-void	ft_leaks(void)
-{
-	system("leaks -q a.out");
-}
-
-void	free_storage(char **string)
-{
-	free(*string);
-	*string = NULL;
-}
 
 int	get_result(char **static_text, char **res, char **temp)
 {
@@ -83,7 +72,7 @@ char	*get_next_line(int fd)
 	int			i;
 
 	temp = NULL;
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (read(fd, 0, 0) < 0)
 	{
 		if (static_text)
 			free_storage(&static_text);
@@ -152,7 +141,7 @@ char	*get_next_line(int fd)
 // 	buf_res = get_next_line(fd);
 // 	printf("RESULTADO -> %s\n", buf_res);
 // 	free(buf_res);
-	
+
 // 	printf("\n\nITERACIÓN 3\n");
 // 	buf_res = get_next_line(fd);
 // 	printf("RESULTADO -> %s\n", buf_res);
@@ -166,7 +155,7 @@ char	*get_next_line(int fd)
 // 	buf_res = get_next_line(fd);
 // 	printf("RESULTADO -> %s\n", buf_res);
 // 	free(buf_res);
-	
+
 // 	printf("\n\nITERACIÓN 6\n");
 // 	buf_res = get_next_line(fd);
 // 	printf("RESULTADO -> %s\n", buf_res);
@@ -176,3 +165,48 @@ char	*get_next_line(int fd)
 // 	// buf_res = get_next_line(fd);
 // 	// buf_res = get_next_line(fd);
 // }
+
+/*
+char	*get_next_line(int fd)
+{
+	char		buf[BUFFER_SIZE + 1];
+	int			chars_read;
+	char		*temp;
+	char		*res;
+	static char	*static_text;
+	int			i;
+
+	temp = NULL;
+	if (read(fd, 0, 0) < 0)
+	{
+		if (static_text)
+			free_storage(&static_text);
+		return (NULL);
+	}
+	if (static_text)
+	{
+		if (check_static(&static_text, &res, &temp))
+			return (res);
+	}
+	chars_read = BUFFER_SIZE;
+	while (chars_read != 0)
+	{
+		chars_read = read(fd, buf, BUFFER_SIZE);
+		if (chars_read == 0)
+			return (chars_read_is_zero(&static_text, &res));
+		buf[chars_read] = '\0';
+		static_text = ft_strjoin(static_text, buf);
+		i = 0;
+		while (buf[i])
+		{
+			if (buf[i] == '\n')
+			{
+				if (get_result(&static_text, &res, &temp))
+					return (res);
+			}
+			i++;
+		}
+	}
+	return (0);
+}
+*/

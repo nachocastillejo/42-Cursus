@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:20:38 by igncasti          #+#    #+#             */
-/*   Updated: 2024/04/18 13:24:23 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/05/08 19:24:09 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 char	*get_next_line(int fd);
 char	*ft_strdup(const char *s1);
 char	*before_new_line(char *s1);
-int		ft_strlen(const char *str);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
 void	free_storage(char **string);

@@ -6,7 +6,7 @@
 /*   By: igncasti <igncasti@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 11:06:18 by igncasti          #+#    #+#             */
-/*   Updated: 2024/05/08 20:07:17 by igncasti         ###   ########.fr       */
+/*   Updated: 2024/05/09 11:56:24 by igncasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,26 @@ int	get_result(char **static_text, char **res, char **temp)
 	if (*res)
 	{
 		*temp = ft_strdup(ft_strchr(*static_text, '\n'));
-		if (*static_text)
-			free_storage(static_text);
+		free_storage(static_text);
 		*static_text = ft_strdup(*temp);
-		if (*temp)
-			free(*temp);
+		free(*temp);
 		return (1);
 	}
 	return (0);
 }
 
-int	check_static(char **static_text, char **res, char **temp)
+int	check_static(char **static_text, char **res)
 {
-	int	i;
+	int		i;
+	char	*temp;
 
+	temp = NULL;
 	i = 0;
 	while ((*static_text)[i])
 	{
 		if ((*static_text)[i] == '\n')
 		{
-			if (get_result(static_text, res, temp))
+			if (get_result(static_text, res, &temp))
 				return (1);
 		}
 		i++;
@@ -51,56 +51,61 @@ char	*chars_read_is_zero(char **static_text, char **res)
 	{
 		*res = before_new_line(*static_text);
 		free_storage(static_text);
-		*static_text = 0;
 		return (*res);
 	}
 	else
 	{
-		if (*static_text)
-			free_storage(static_text);
+		free_storage(static_text);
 		return (NULL);
 	}
+}
+
+int	check_buf(char **static_text, char *buf, char **res, int chars)
+{
+	int		i;
+	char	*temp;
+
+	temp = NULL;
+	buf[chars] = '\0';
+	*static_text = ft_strjoin(*static_text, buf);
+	i = 0;
+	while (buf[i])
+	{
+		if (buf[i] == '\n')
+		{
+			if (get_result(static_text, res, &temp))
+				return (1);
+		}
+		i++;
+	}
+	return (0);
 }
 
 char	*get_next_line(int fd)
 {
 	char		buf[BUFFER_SIZE + 1];
-	int			chars_read;
-	char		*temp;
+	int			chars;
 	char		*res;
 	static char	*static_text;
-	int			i;
 
-	temp = NULL;
 	if (read(fd, 0, 0) < 0)
 	{
-		if (static_text)
-			free_storage(&static_text);
+		free_storage(&static_text);
 		return (NULL);
 	}
 	if (static_text)
 	{
-		if (check_static(&static_text, &res, &temp))
+		if (check_static(&static_text, &res))
 			return (res);
 	}
-	chars_read = BUFFER_SIZE;
-	while (chars_read != 0)
+	chars = BUFFER_SIZE;
+	while (chars != 0)
 	{
-		chars_read = read(fd, buf, BUFFER_SIZE);
-		if (chars_read == 0)
+		chars = read(fd, buf, BUFFER_SIZE);
+		if (chars == 0)
 			return (chars_read_is_zero(&static_text, &res));
-		buf[chars_read] = '\0';
-		static_text = ft_strjoin(static_text, buf);
-		i = 0;
-		while (buf[i])
-		{
-			if (buf[i] == '\n')
-			{
-				if (get_result(&static_text, &res, &temp))
-					return (res);
-			}
-			i++;
-		}
+		if (check_buf(&static_text, buf, &res, chars))
+			return (res);
 	}
 	return (0);
 }
